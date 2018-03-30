@@ -1,0 +1,154 @@
+/* Background */
+
+body {
+	margin: 0;
+	background-color: #fff;
+	min-height: 100%;
+	font-family: Archia;
+}
+
+.alfaSlab {
+	font-family: 'Alfa Slab One', cursive;
+}
+
+/*a {
+	color: white;
+}*/
+
+a:hover {
+	color: #19ff75;
+}
+
+/* Cores */
+
+.greenBg {
+	background-color: #19ff75;
+}
+
+.whiteBg {
+	background-color: #fff;
+}
+
+.dark-grayBg {
+	background-color: #373a3c;
+}
+
+.greenF {
+	color: #19ff75;
+}
+
+.whiteF {
+	color: #fff;
+}
+
+.dark-grayF {
+	color: #373a3c;
+}
+
+.light-grayF {
+	color: #888;
+}
+
+.no-color {
+	background-color: rgba(255,255,255,0);
+}
+
+.padBoxA {
+	padding-top: 7%;
+	padding-bottom: 7%;
+}
+
+.padBoxB {
+	padding: 15% 25% 20% 25%;
+}
+
+.padBoxC {
+	padding: 10% 10% 15% 10%;
+}
+
+.sk-p-btn {
+	padding: 10px 100px;
+}
+
+.boxShadowA {
+	box-shadow: 0px 3px 10px 0.1px #ccc;
+}
+
+.magBox5top {
+	margin-top: 5%;
+}
+
+.magBoxA {
+	margin-right: 10%;
+	margin-left: 10%;
+}
+
+.sk-ml-title {
+	margin-left: 3%;
+}
+
+.iconPad {
+	padding-top: 14px;
+}
+
+.inputDetails:focus {
+	border-color: #19ff75;
+	box-shadow: 0px 0px 0px #19ff75;
+}
+
+.inputDetailsB {
+	border-color: #19ff75;
+}
+
+.inputDetailsB:hover, .inputDetailsB:focus {
+	border-color: rgba(0,0,0,0);
+	box-shadow: 0px 0px 0px #19ff75;
+	background-color: #19ff75;
+	color: #373a3c;
+}
+
+.borderDotted {
+	border-right-style: dotted;
+	border-color: #888;
+	border-width: medium;
+}
+
+.sk-w-51 {
+	width: 51%;
+}
+
+.sk-w-65 {
+	width: 65%;
+}
+
+@media screen and (max-width: 1024px) {
+	.magBox5top {
+		margin-top: 7%;
+	}
+	
+	.padBoxB {
+		padding: 7% 5% 15% 5%;
+	}
+	
+	.padBoxC {
+		padding: 5% 0% 10% 0%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.magBox5top {
+		margin-top: 0%;
+	}
+	
+	.magBoxA {
+		margin: 0%;
+	}
+
+	.sk-w-51, .sk-w-65 {
+		width: 100%;
+	}
+
+	.sk-ml-title {
+		margin-left: 0%;
+	}
+}

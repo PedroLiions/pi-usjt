@@ -13,7 +13,11 @@ class CreateTokenMigration extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('accessToken', function(Blueprint $table){
+           $table->increments('id');
+           $table->string('token');
+           $table->timestamps();
+        });
     }
 
     /**
