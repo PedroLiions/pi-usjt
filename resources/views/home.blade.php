@@ -19,13 +19,13 @@
             <div class="row">
                 <!-- Botão para transferência -->
                 <div class="col-lg-4">
-                    <a href="transferencia.php">
+                    <a href="{{ route('TransferenciaCreate') }}">
                         <button type="button" class="btn btn-block greenBg dark-grayF py-4 mb-2 btn-lg">transferir dinheiro</button>
                     </a>
                 </div>
                 <!-- Botão para extrato -->
                 <div class="col-lg-4">
-                    <a href="extrato.php">
+                    <a href="{{ route('ExtratoIndex') }}">
                         <button type="button" class="btn btn-block greenBg dark-grayF py-4 mb-2 btn-lg">checar extrato</button>
                     </a>
                 </div>

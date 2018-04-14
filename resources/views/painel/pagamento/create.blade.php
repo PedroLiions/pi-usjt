@@ -3,7 +3,7 @@
 @section('conteudo')
 
     <div class="container">
-        <h1>Realizar transferencia</h1>
+        <h1 class="display-4 mb-4">Realizar transferencia</h1>
         <form action="">
             <div class="card">
                 <h5 class="card-header">Transferencia</h5>

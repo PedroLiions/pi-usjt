@@ -5,6 +5,12 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use Illuminate\Http\Request;
+use App\User;
+use App\Transferencia;
+use App\Pagamento;
+use App\Deposito;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -26,4 +32,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public static function saldo() {
+        $transferenciaIn    = Transferencia::where('user_receptor_id', auth()->user()->id)->sum('valor');
+        $transferenciaOut   = Transferencia::where('user_pagador_id', auth()->user()->id)->sum('valor');
+        $deposito           = Deposito::where('user_id', auth()->user()->id)->sum('valor');
+
+        return $deposito + $transferenciaIn - $transferenciaOut;
+    }
+
 }
