@@ -14,9 +14,6 @@ class UserController extends Controller
         $transferenciaIn    = Transferencia::where('user_receptor_id', auth()->user()->id)->sum('valor');
         $transferenciaOut   = Transferencia::where('user_pagador_id', auth()->user()->id)->sum('valor');
         $deposito           = Deposito::where('user_id', auth()->user()->id)->sum('valor');
-
-
-
         return ($deposito + $transferenciaIn) - $transferenciaOut;
     }
 }

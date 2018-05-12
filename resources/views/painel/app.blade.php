@@ -52,11 +52,11 @@
             </li>
             <!-- Extrato -->
             <li class="nav-item px-4">
-                <a class="nav-link" href="extrato.php" data-toggle="tooltip" data-placement="bottom" title="Extrato"><i class="fas fa-file-alt fa-md"></i></a>
+                <a class="nav-link" href="{{ route('ExtratoIndex') }}" data-toggle="tooltip" data-placement="bottom" title="Extrato"><i class="fas fa-file-alt fa-md"></i></a>
             </li>
             <!-- Pagar contas -->
             <li class="nav-item px-4">
-                <a class="nav-link" href="pagamento.php" data-toggle="tooltip" data-placement="bottom" title="Pagar contas"><i class="fas fa-dollar-sign fa-md"></i></a>
+                <a class="nav-link" href="{{ route('PagamentoCreate') }}" data-toggle="tooltip" data-placement="bottom" title="Pagar contas"><i class="fas fa-dollar-sign fa-md"></i></a>
             </li>
             <!-- Sair -->
             <li class="nav-item px-4">

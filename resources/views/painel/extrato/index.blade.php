@@ -2,8 +2,6 @@
 
 @section('linksCSS')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
-    {{--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">--}}
-
 @endsection
 
 @section('conteudo')
@@ -26,7 +24,7 @@
                         @foreach($transferenciasIn as $t)
                         <tr>
                             <td class="text-left"><i class='text-muted'>CRÉDITO EM CONTA</i></td>
-                            <td class="text-right">{{ Carbon\Carbon::parse($t->created_at)->format('d/m/Y') }}</td>
+                            <td class="text-right">{{ Carbon\Carbon::parse($t->created_at)->format('d/m/Y H:i') }}</td>
                             <td class="text-right"><span style="color: blue">{{ number_format($t->valor, 2, ',', '.') }} D</span></td>
                         </tr>
                         @endforeach
@@ -34,24 +32,38 @@
                         @foreach($transferenciasOut as $t)
                         <tr>
                             <td class="text-left"><i class='text-muted'>DÉBITO EM CONTA</i></td>
-                            <td class="text-right">{{ Carbon\Carbon::parse($t->created_at)->format('d/m/Y') }}</td>
-                            <td class="text-right"><span style="color: red">-{{ number_format($t->valor, 2, ',', '.') }} D</span></td>
+                            <td class="text-right">{{ Carbon\Carbon::parse($t->created_at)->format('d/m/Y H:i') }}</td>
+                            <td class="text-right">
+                                <span style="color: red">
+                                    -{{ number_format($t->valor, 2, ',', '.') }} D
+                                </span>
+                            </td>
                         </tr>
                         @endforeach
 
                         @foreach($depositos as $deposito)
                         <tr>
                             <td class="text-left"><i class="text-muted">DEPÓSITO</i></td>
-                            <td class="text-right">{{ Carbon\Carbon::parse($deposito->created_at)->format('d/m/Y') }}</td>
-                            <td class="text-right"><span style="color: blue">{{ number_format($deposito->valor, 2, ',', '.') }} C</span></td>
+                            <td class="text-right">{{ Carbon\Carbon::parse($deposito->created_at)->format('d/m/Y H:i') }}</td>
+                            <td class="text-right">
+                                <span style="color: blue">
+                                    {{ number_format($deposito->valor, 2, ',', '.') }} C
+                                </span>
+                            </td>
                         </tr>
                         @endforeach
 
                         @foreach($pagamentos as $pagamento)
                         <tr>
                             <td class="text-left"><i class="text-muted">PAGAMENTO</i></td>
-                            <td class="text-right">{{ Carbon\Carbon::parse($pagamento->created_at)->format('d/m/Y') }}</td>
-                            <td class="text-right"><span style="color: red">-{{ number_format($pagamento->valor, 2, ',', '.') }} D</span></td>
+                            <td class="text-right">
+                                {{ Carbon\Carbon::parse($pagamento->created_at)->format('d/m/Y H:I') }}
+                            </td>
+                            <td class="text-right">
+                                <span style="color: red">
+                                    -{{ number_format($pagamento->valor, 2, ',', '.') }} D
+                                </span>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -59,7 +71,11 @@
                     <tfooter>
                         <tr style="font-size: 20px">
                             <td class="text-left">Saldo:</td>
-                            <td colspan="2" class="text-right"><span class="font-weight-bold" style="color: blue">{{ number_format($saldo, 2, ',', '.') }} C</span></td>
+                            <td colspan="2" class="text-right">
+                                <span class="font-weight-bold" style="color: blue">
+                                {{ number_format($saldo, 2, ',', '.') }} C
+                            </span>
+                        </td>
                         </tr>
                     </tfooter>
 
@@ -85,7 +101,8 @@
                     "info": "Página _PAGE_ de _PAGES_",
                     "infoEmpty": "Parece não ter nada aqui",
                     "infoFiltered": "(filtered from _MAX_ total records)",
-                }
+                },
+                "order" : [[ 3, "asc" ]]
             });
         } );
     </script>

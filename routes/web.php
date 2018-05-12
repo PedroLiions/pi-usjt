@@ -28,6 +28,8 @@ Route::group(['prefix' => 'internetbanking'], function(){
 
         Route::post('/store', 'TransferenciaController@store')->name('TransferenciaStore');
 
+        Route::get('/pega-infos-receptor', 'TransferenciaController@verificaReceptor')->name('pega_infos_receptor');
+
     });
 
     Route::group(['prefix' => 'extrato'], function() {
@@ -38,7 +40,7 @@ Route::group(['prefix' => 'internetbanking'], function(){
 
     Route::group(['prefix' => 'pagamento'], function() {
 
-        Route::get('/', 'PagamentoController@create');
+        Route::get('/', 'PagamentoController@create')->name('PagamentoCreate');
 
     });
 

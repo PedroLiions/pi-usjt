@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Auth;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Auth;
-use App\TokenAccess;
-use Carbon\Carbon;
 use stdClass;
 
 class LoginController extends Controller
@@ -44,29 +43,31 @@ class LoginController extends Controller
 
     public function authenticate(Request $request, stdClass $erro)
     {
-//        $token = TokenAccess::where('token', $request->token)->first();
+        // $token = TokenAccess::where('token', $request->token)->first();
 
         $input = $request->all();
-//
-//        if (count($token) < 1) {
-//            $erro->tipo = 'danger';
-//            $erro->mensagem = 'O Token digitado é inválido';
-//
-//            return back()->with(compact('erro', 'input'));
-//        }
 
-//        if ($token->estado == 0) {
-//            $erro->tipo = 'danger';
-//            $erro->mensagem = 'O Token digitado já foi utilizado';
-//            return back()->with(compact('erro', 'input'));
-//        }
+        // if (count($token) < 1) {
+        //     $erro->tipo = 'danger';
+        //     $erro->mensagem = 'O Token digitado é inválido';
 
-//        if (!$this->validaTempoToken($token)) {
-//            $erro->tipo = 'warning';
-//            $erro->mensagem = 'O Token digitado expirou, gere um novo Token e tente novamente';
-//            return back()->with(compact('erro', 'input'));
-//        }
+        //     return back()->with(compact('erro', 'input'));
+        // }
 
+        // if ($token->estado == 0) {
+        //     $erro->tipo = 'danger';
+        //     $erro->mensagem = 'O Token digitado já foi utilizado';
+        //     return back()->with(compact('erro', 'input'));
+        // }
+
+        // Se a função retornar falso
+        // if (!$this->validaTempoToken($token)) {
+        //     $erro->tipo = 'warning';
+        //     $erro->mensagem = 'O Token digitado expirou, gere um novo Token e tente novamente';
+        //     return back()->with(compact('erro', 'input'));
+        // }
+
+        // metodo para autenticar o usuário
         $autenticaUsuario = Auth::attempt(
             [
                 'agencia' => $request->agencia,
@@ -91,11 +92,11 @@ class LoginController extends Controller
         $tokenData = Carbon::parse($token->created_at)->format('Y-m-d H:i:s');
         $dataAtual = Carbon::now();
 
-        if ($dataAtual->diffInMinutes($tokenData) > 60) :
-            return true;
-        else:
+        if ($dataAtual->diffInMinutes($tokenData) > 60) {
             return false;
-        endif;
+        } else {
+            return true;
+        }
 
     }
 }
